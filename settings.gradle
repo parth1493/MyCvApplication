@@ -1,0 +1,2 @@
+include ':Domain'
+rootProject.name='MyCvApplication'
