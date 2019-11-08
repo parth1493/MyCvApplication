@@ -13,6 +13,7 @@ import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
+import java.lang.NullPointerException
 
 class TestGetTimeLine {
     private lateinit var getTimeline: GetTimeLine
@@ -27,7 +28,7 @@ class TestGetTimeLine {
 
     @Test
     fun getProfilesCompletes() {
-        stubGetProjects(Observable.just(TimeLineFakeDataFactory.makeTimeLineList(2)))
+        stubGetTimeLine(Observable.just(TimeLineFakeDataFactory.makeTimeLineList(2)))
         val testObserver = getTimeline.buildUseCaseObservable().test()
         testObserver.assertComplete()
     }
@@ -35,13 +36,18 @@ class TestGetTimeLine {
     @Test
     fun getProfileReturnsData() {
         val timeline = TimeLineFakeDataFactory.makeTimeLineList(2)
-        stubGetProjects(Observable.just(timeline))
+        stubGetTimeLine(Observable.just(timeline))
         val testObserver = getTimeline.buildUseCaseObservable().test()
         testObserver.assertValue(timeline)
     }
 
-    private fun stubGetProjects(observable: Observable<List<Timeline>>) {
+    private fun stubGetTimeLine(observable: Observable<List<Timeline>>) {
         whenever(cvRepository.getTimeLine())
             .thenReturn(observable)
+    }
+
+    @Test(expected = NullPointerException::class)
+    fun getTimeLineReturnsNullError() {
+        getTimeline.buildUseCaseObservable().test()
     }
 }
