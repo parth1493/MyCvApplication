@@ -1,4 +1,4 @@
-package com.example.domain.interactor
+package com.example.domain
 
 import com.example.domain.executor.PostExecutionThread
 import io.reactivex.Observable

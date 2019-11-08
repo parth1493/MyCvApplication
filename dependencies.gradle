@@ -11,19 +11,19 @@ ext{
     javaxInjectVersion = '1'
 
     domainDependencies = [
-            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
-        javaxInject: "javax.inject.javax.inject:${javaxInjectVersion}",
+        javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+        javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}",
         rxJava: "io.reactivex.rxjava2:rxkotlin:${rxJavaVersion}"
     ]
 
     //Testing
     jUnitVersion = '4.12'
-    assertJversion = '3.14.0'
+    assertJVersion = '3.14.0'
     mockitoVersion = '2.2.0'
 
     domainTestDependencies = [
             jUnit: "junit:junit:${jUnitVersion}",
             mockito: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoVersion}",
-            assertj: "org.assert:assertj-core:${assertJversion}"
+            assertj: "org.assertj:assertj-core:${assertJVersion}"
     ]
 }
