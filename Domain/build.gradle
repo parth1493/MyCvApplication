@@ -4,14 +4,14 @@ dependencies {
     def domainDependecnies = rootProject.ext.domainDependencies
     def domainTestDependecnies = rootProject.ext.domainTestDependencies
 
-    implementation domainDependecnies.rxJava
+    implementation domainDependecnies.rxKotlin
     implementation domainDependencies.javaxInject
     implementation domainDependencies.javaxAnnotation
+    implementation domainDependencies.kotlin
 
     testImplementation domainTestDependecnies.jUnit
     testImplementation domainTestDependecnies.mockito
     testImplementation domainTestDependecnies.assertj
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
 }
 
