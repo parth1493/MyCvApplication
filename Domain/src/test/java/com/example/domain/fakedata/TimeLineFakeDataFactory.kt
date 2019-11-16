@@ -1,6 +1,6 @@
 package com.example.domain.fakedata
 
-import com.example.domain.model.Timeline
+import com.example.domain.model.TimeLine
 import java.util.*
 import java.util.concurrent.atomic.AtomicInteger
 
@@ -16,8 +16,8 @@ object TimeLineFakeDataFactory {
         return counter.getAndIncrement()
     }
 
-    fun makeTimeLine(): Timeline {
-        return Timeline(
+    fun makeTimeLine(): TimeLine {
+        return TimeLine(
             getid(),
             randomUuid(),
             randomUuid(),
@@ -28,8 +28,8 @@ object TimeLineFakeDataFactory {
         )
     }
 
-    fun makeTimeLineList(count: Int): List<Timeline> {
-        val timeLine = mutableListOf<Timeline>()
+    fun makeTimeLineList(count: Int): List<TimeLine> {
+        val timeLine = mutableListOf<TimeLine>()
         repeat(count) {
             timeLine.add(makeTimeLine())
         }

@@ -1,6 +1,6 @@
 package com.example.domain.model
 
-class Timeline(
+class TimeLine(
     var id: Int,
     var name: String,
     var roleName: String,

@@ -7,7 +7,7 @@ import com.example.data.repository.CVCache
 import com.example.data.store.CVDataStoreFactory
 import com.example.domain.model.Profile
 import com.example.domain.model.Skill
-import com.example.domain.model.Timeline
+import com.example.domain.model.TimeLine
 import com.example.domain.respository.CVRepository
 import io.reactivex.Observable
 import io.reactivex.functions.BiFunction
@@ -20,7 +20,7 @@ class CVDataRepository @Inject constructor(
     private val cache : CVCache,
     private val factory : CVDataStoreFactory ):CVRepository {
 
-    override fun getTimeLine(): Observable<List<Timeline>> {
+    override fun getTimeLine(): Observable<List<TimeLine>> {
         return Observable.zip(cache.isTimeLineCached().toObservable(),
             cache.isTimeLineCachedExpired().toObservable(),
             BiFunction<Boolean, Boolean, Pair<Boolean, Boolean>> {

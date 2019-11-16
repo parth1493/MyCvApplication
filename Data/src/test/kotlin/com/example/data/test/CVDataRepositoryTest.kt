@@ -12,7 +12,7 @@ import com.example.data.repository.CVDataStore
 import com.example.data.store.CVDataStoreFactory
 import com.example.domain.model.Profile
 import com.example.domain.model.Skill
-import com.example.domain.model.Timeline
+import com.example.domain.model.TimeLine
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -190,7 +190,7 @@ class CVDataRepositoryTest {
             .thenReturn(observable)
     }
 
-    private fun stubMapperTimeLine(model: Timeline, entity: TimeLineEntity) {
+    private fun stubMapperTimeLine(model: TimeLine, entity: TimeLineEntity) {
         whenever(mapperTimeLine.mapFromEntity(entity))
             .thenReturn(model)
     }

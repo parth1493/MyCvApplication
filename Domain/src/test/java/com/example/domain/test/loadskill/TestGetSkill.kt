@@ -1,14 +1,9 @@
 package com.example.domain.test.loadskill
 
 import com.example.domain.executor.PostExecutionThread
-import com.example.domain.fakedata.ProfileFakeDataFactory
 import com.example.domain.fakedata.SkillFakeDataFactory
-import com.example.domain.fakedata.TimeLineFakeDataFactory
 import com.example.domain.interactor.loadskill.GetSkill
-import com.example.domain.interactor.loadtimeline.GetTimeLine
-import com.example.domain.model.Profile
 import com.example.domain.model.Skill
-import com.example.domain.model.Timeline
 import com.example.domain.respository.CVRepository
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Observable

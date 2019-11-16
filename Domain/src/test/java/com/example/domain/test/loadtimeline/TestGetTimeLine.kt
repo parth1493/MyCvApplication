@@ -1,11 +1,9 @@
 package com.example.domain.test.loadtimeline
 
 import com.example.domain.executor.PostExecutionThread
-import com.example.domain.fakedata.ProfileFakeDataFactory
 import com.example.domain.fakedata.TimeLineFakeDataFactory
 import com.example.domain.interactor.loadtimeline.GetTimeLine
-import com.example.domain.model.Profile
-import com.example.domain.model.Timeline
+import com.example.domain.model.TimeLine
 import com.example.domain.respository.CVRepository
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Observable
@@ -41,7 +39,7 @@ class TestGetTimeLine {
         testObserver.assertValue(timeline)
     }
 
-    private fun stubGetTimeLine(observable: Observable<List<Timeline>>) {
+    private fun stubGetTimeLine(observable: Observable<List<TimeLine>>) {
         whenever(cvRepository.getTimeLine())
             .thenReturn(observable)
     }

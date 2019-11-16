@@ -6,7 +6,7 @@ import com.example.data.model.TimeLineEntity
 import com.example.data.test.factory.DataFactory
 import com.example.domain.model.Profile
 import com.example.domain.model.Skill
-import com.example.domain.model.Timeline
+import com.example.domain.model.TimeLine
 
 object CVFactory {
 
@@ -56,8 +56,8 @@ object CVFactory {
         )
     }
 
-    fun makeTimeLine(): Timeline {
-        return Timeline(
+    fun makeTimeLine(): TimeLine {
+        return TimeLine(
             DataFactory.randomInt(),
             DataFactory.randomString(),
             DataFactory.randomString(),

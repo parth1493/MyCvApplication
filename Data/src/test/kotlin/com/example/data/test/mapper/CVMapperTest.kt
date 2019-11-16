@@ -9,7 +9,7 @@ import com.example.data.model.TimeLineEntity
 import com.example.data.test.CVFactory
 import com.example.domain.model.Profile
 import com.example.domain.model.Skill
-import com.example.domain.model.Timeline
+import com.example.domain.model.TimeLine
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -74,7 +74,7 @@ class CVMapperTest {
         assertEquals(entity.skillValue, model.skillValue)
     }
 
-    private fun assertTimeLineEqualData(entity: TimeLineEntity, model: Timeline) {
+    private fun assertTimeLineEqualData(entity: TimeLineEntity, model: TimeLine) {
         assertEquals(entity.id, model.id)
         assertEquals(entity.name, model.name)
         assertEquals(entity.roleName, model.roleName)
