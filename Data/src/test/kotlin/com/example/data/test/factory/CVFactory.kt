@@ -2,9 +2,11 @@ package com.example.data.test
 
 import com.example.data.model.ProfileEntity
 import com.example.data.model.SkillEntity
+import com.example.data.model.TimeLineEntity
 import com.example.data.test.factory.DataFactory
 import com.example.domain.model.Profile
 import com.example.domain.model.Skill
+import com.example.domain.model.Timeline
 
 object CVFactory {
 
@@ -39,6 +41,30 @@ object CVFactory {
             DataFactory.randomInt(),
             DataFactory.randomString(),
             DataFactory.randomFloat()
+        )
+    }
+
+    fun makeTimeLineEntity(): TimeLineEntity {
+        return TimeLineEntity(
+            DataFactory.randomInt(),
+            DataFactory.randomString(),
+            DataFactory.randomString(),
+            DataFactory.randomString(),
+            DataFactory.randomString(),
+            DataFactory.randomString(),
+            DataFactory.randomInt()
+        )
+    }
+
+    fun makeTimeLine(): Timeline {
+        return Timeline(
+            DataFactory.randomInt(),
+            DataFactory.randomString(),
+            DataFactory.randomString(),
+            DataFactory.randomString(),
+            DataFactory.randomString(),
+            DataFactory.randomString(),
+            DataFactory.randomInt()
         )
     }
 }

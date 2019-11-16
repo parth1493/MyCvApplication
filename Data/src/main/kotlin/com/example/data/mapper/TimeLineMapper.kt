@@ -1,8 +1,6 @@
 package com.example.data.mapper
 
-import com.example.data.model.ProfileEntity
 import com.example.data.model.TimeLineEntity
-import com.example.domain.model.Profile
 import com.example.domain.model.Timeline
 import javax.inject.Inject
 

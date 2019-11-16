@@ -2,6 +2,7 @@ package com.example.data.test.store
 
 import com.example.data.model.ProfileEntity
 import com.example.data.model.SkillEntity
+import com.example.data.model.TimeLineEntity
 import com.example.data.repository.CVRemote
 import com.example.data.store.CVRemoteDataStore
 import com.example.data.test.CVFactory
@@ -72,6 +73,36 @@ class CVRemoteDataStoreTest {
 
     private fun stubRemoteGetSkill(observable: Observable<List<SkillEntity>>) {
         whenever(remote.getSkills())
+            .thenReturn(observable)
+    }
+
+    @Test
+    fun getTimeLineCompletes() {
+        stubRemoteGetTimeLine(Observable.just(listOf(CVFactory.makeTimeLineEntity())))
+        val testObserver = store.getTimeLine().test()
+        testObserver.assertComplete()
+    }
+
+    @Test
+    fun getTimeLineReturnsData() {
+        val data = listOf(CVFactory.makeTimeLineEntity())
+        stubRemoteGetTimeLine(Observable.just(data))
+        val testObserver = store.getTimeLine().test()
+        testObserver.assertValue(data)
+    }
+
+    @Test(expected = UnsupportedOperationException::class)
+    fun saveTimeLineThrowsException() {
+        store.saveTimeLine(listOf()).test()
+    }
+
+    @Test(expected = UnsupportedOperationException::class)
+    fun clearTimeLineThrowsException() {
+        store.cleanTimeLine().test()
+    }
+
+    private fun stubRemoteGetTimeLine(observable: Observable<List<TimeLineEntity>>) {
+        whenever(remote.getTimeLine())
             .thenReturn(observable)
     }
 }
