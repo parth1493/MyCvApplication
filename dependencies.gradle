@@ -23,6 +23,8 @@ ext{
     robolectricVersion = '4.3.1'
     mokitoInlineVersion = '3.1.0'
     mockitoKotlinVersion = '1.5.0'
+    roomVersion = '2.2.1'
+    daggerVersion = '2.25.2'
 
     domainDependencies = [
         javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
@@ -73,5 +75,29 @@ ext{
             kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlin_version}",
             assertj: "org.assertj:assertj-core:${assertJVersion}",
             mockito: "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}"
+    ]
+
+
+    cacheDependencies = [
+            daggerCompiler: "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger: "com.google.dagger:dagger:${daggerVersion}",
+            gson: "com.google.code.gson:gson:${gsonVersion}",
+            rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}",
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}",
+            androidAnnotations: "com.android.support:support-annotations:${androidAnnotationsVersion}",
+            roomRuntime: "androidx.room:room-runtime:${roomVersion}",
+            roomCompiler: "androidx.room:room-compiler:${roomVersion}",
+            roomRxJava: "androidx.room:room-rxjava2:${roomVersion}"
+    ]
+
+    cacheTestDependencies = [
+            junit: "junit:junit:${jUnitVersion}",
+            kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlin_version}",
+            robolectric: "org.robolectric:robolectric:${robolectricVersion}",
+            assertj: "org.assertj:assertj-core:${assertJVersion}",
+            mockito: "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}",
+            roomTesting: "androidx.room:room-testing:${roomVersion}",
     ]
 }
