@@ -2,6 +2,7 @@ package com.example.data.repository
 
 import com.example.data.model.ProfileEntity
 import com.example.data.model.SkillEntity
+import com.example.data.model.TimeLineEntity
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
@@ -31,4 +32,16 @@ interface CVCache {
     fun setSkillsLastCachedTime(lastCache: Long): Completable
 
     fun isSkillCachedExpired(): Single<Boolean>
+
+    fun clearTimeLine():Completable
+
+    fun saveTimeLine(timeLine : List<TimeLineEntity>):Completable
+
+    fun getTimeLine(): Observable<List<TimeLineEntity>>
+
+    fun isTimeLineCached(): Single<Boolean>
+
+    fun setTimeLineLastCachedTime(lastCache: Long) : Completable
+
+    fun isTimeLineCachedExpired(): Single<Boolean>
 }

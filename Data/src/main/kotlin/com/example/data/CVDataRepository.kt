@@ -2,6 +2,7 @@ package com.example.data
 
 import com.example.data.mapper.ProfileMapper
 import com.example.data.mapper.SkillMapper
+import com.example.data.mapper.TimeLineMapper
 import com.example.data.repository.CVCache
 import com.example.data.store.CVDataStoreFactory
 import com.example.domain.model.Profile
@@ -15,11 +16,29 @@ import javax.inject.Inject
 class CVDataRepository @Inject constructor(
     private val mapperProfile : ProfileMapper,
     private val mapperSkill : SkillMapper,
+    private val mapperTimeLine : TimeLineMapper,
     private val cache : CVCache,
     private val factory : CVDataStoreFactory ):CVRepository {
 
     override fun getTimeLine(): Observable<List<Timeline>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return Observable.zip(cache.isTimeLineCached().toObservable(),
+            cache.isTimeLineCachedExpired().toObservable(),
+            BiFunction<Boolean, Boolean, Pair<Boolean, Boolean>> {
+                    isCached, isExpired -> Pair(isCached, isExpired)
+            })
+            .flatMap {
+                factory.getDataStore(it.first, it.second).getTimeLine()
+            }
+            .flatMap {
+                    skill -> factory.getCacheDataStore()
+                .saveTimeLine(skill)
+                .andThen(Observable.just(skill))
+            }
+            .map {
+                it.map {
+                    mapperTimeLine.mapFromEntity(it)
+            }
+        }
     }
 
     override fun getSkill(): Observable<List<Skill>> {
@@ -40,8 +59,8 @@ class CVDataRepository @Inject constructor(
             .map {
                 it.map {
                     mapperSkill.mapFromEntity(it)
-                }
             }
+        }
     }
 
     override fun getProfile(): Observable<List<Profile>> {
@@ -61,7 +80,7 @@ class CVDataRepository @Inject constructor(
             .map {
                 it.map {
                     mapperProfile.mapFromEntity(it)
-                }
             }
+        }
     }
 }

@@ -2,6 +2,7 @@ package com.example.data.store
 
 import com.example.data.model.ProfileEntity
 import com.example.data.model.SkillEntity
+import com.example.data.model.TimeLineEntity
 import com.example.data.repository.CVCache
 import com.example.data.repository.CVDataStore
 import io.reactivex.Completable
@@ -11,6 +12,19 @@ import javax.inject.Inject
 class CVCacheDataStore @Inject constructor(
         private val cvCache : CVCache)
     : CVDataStore {
+    override fun saveTimeLine(timeLine: List<TimeLineEntity>): Completable {
+        return cvCache.saveTimeLine(timeLine)
+            .andThen(cvCache.setTimeLineLastCachedTime(System.currentTimeMillis()))
+    }
+
+    override fun cleanTimeLine(): Completable {
+        return cvCache.clearTimeLine()
+    }
+
+    override fun getTimeLine(): Observable<List<TimeLineEntity>> {
+        return cvCache.getTimeLine()
+    }
+
     override fun saveSkill(skills: List<SkillEntity>): Completable {
         return cvCache.saveSkills(skills)
             .andThen(cvCache.setSkillsLastCachedTime(System.currentTimeMillis()))
