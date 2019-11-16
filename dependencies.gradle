@@ -15,6 +15,8 @@ ext{
     assertJVersion = '3.14.0'
     mockitoVersion = '2.2.0'
     robolectricVersion = '4.3.1'
+    mokitoInlineVersion = '3.1.0'
+    mockitoKotlinVersion = '1.5.0'
 
     domainDependencies = [
         javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
@@ -40,8 +42,9 @@ ext{
     dataTestDependencies = [
             junit: "junit:junit:${jUnitVersion}",
             kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}",
-            mockito:"com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoVersion}",
+            mockito: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoVersion}",
             assertj: "org.assertj:assertj-core:${assertJVersion}",
-            robolectric: "org.robolectric:robolectric:${robolectricVersion}"
+            robolectric: "org.robolectric:robolectric:${robolectricVersion}",
+            mockitoInline: "org.mockito:mockito-inline:${mokitoInlineVersion}"
     ]
 }
