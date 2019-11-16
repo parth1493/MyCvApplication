@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import com.example.cache.db.CVConfigConstants
 
 @Entity(tableName = CVConfigConstants.TIMELINE_CONFIG_TABLE_NAME)
-class TimelineConfig(
+data class TimelineConfig(
     @PrimaryKey(autoGenerate = true)
     var id: Int = -1,
     var lastCacheTime: Long)

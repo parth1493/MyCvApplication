@@ -1,13 +1,15 @@
-package com.example.remote.factory
+package com.example.cache.factory
 
+import com.example.cache.model.CacheProfile
+import com.example.cache.model.CacheSkill
+import com.example.cache.model.CacheTimeline
 import com.example.data.model.ProfileEntity
 import com.example.data.model.SkillEntity
 import com.example.data.model.TimeLineEntity
-import com.example.remote.model.*
 
-object CVDataFactory {
+object CVCachedDataFactory {
 
-    fun makeProfileEntity():ProfileEntity{
+    fun makeCachedProfileEntity():ProfileEntity{
         return ProfileEntity(
             DataFactory.randomInt(),
             DataFactory.randomString(),
@@ -16,8 +18,8 @@ object CVDataFactory {
         )
     }
 
-    fun makeProfile(): ProfileModel {
-        return ProfileModel(
+    fun makeCachedProfile(): CacheProfile {
+        return CacheProfile(
             DataFactory.randomInt(),
             DataFactory.randomString(),
             DataFactory.randomString(),
@@ -25,11 +27,7 @@ object CVDataFactory {
         )
     }
 
-    fun makeProfileResponse(): ProfileResposeModel {
-        return ProfileResposeModel(listOf(makeProfile(), makeProfile()))
-    }
-
-    fun makeSkillEntity(): SkillEntity {
+    fun makeCachedSkillEntity(): SkillEntity {
         return SkillEntity(
             DataFactory.randomInt(),
             DataFactory.randomString(),
@@ -37,19 +35,15 @@ object CVDataFactory {
         )
     }
 
-    fun makeSkill(): SkillModel {
-        return SkillModel(
+    fun makeCachedSkill(): CacheSkill {
+        return CacheSkill(
             DataFactory.randomInt(),
             DataFactory.randomString(),
             DataFactory.randomFloat()
         )
     }
 
-    fun makeSkillResponse(): SkillResposeModel {
-        return SkillResposeModel(listOf(makeSkill(), makeSkill()))
-    }
-
-    fun makeTimeLineEntity(): TimeLineEntity {
+    fun makeCachedTimeLineEntity(): TimeLineEntity {
         return TimeLineEntity(
             DataFactory.randomInt(),
             DataFactory.randomString(),
@@ -61,8 +55,8 @@ object CVDataFactory {
         )
     }
 
-    fun makeTimeLine(): TimeLineModel {
-        return TimeLineModel(
+    fun makeCachedTimeLine(): CacheTimeline {
+        return CacheTimeline(
             DataFactory.randomInt(),
             DataFactory.randomString(),
             DataFactory.randomString(),
@@ -71,8 +65,5 @@ object CVDataFactory {
             DataFactory.randomString(),
             DataFactory.randomInt()
         )
-    }
-    fun makeTimelineResponse(): TimelineResposeModel {
-        return TimelineResposeModel(listOf(makeTimeLine(), makeTimeLine()))
     }
 }

@@ -10,7 +10,8 @@ import io.reactivex.Flowable
 
 @Dao
 abstract class ProfileConfigDao {
-    @Query(CVConfigConstants.PROFILE_CONFIG_TABLE_NAME)
+
+    @Query(CVConfigConstants.PROFILE_QUERY_CONFIG)
     abstract fun getConfig(): Flowable<ProfileConfig>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

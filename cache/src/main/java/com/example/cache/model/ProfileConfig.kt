@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import com.example.cache.db.CVConfigConstants
 
 @Entity(tableName = CVConfigConstants.PROFILE_CONFIG_TABLE_NAME)
-class ProfileConfig(
+data class ProfileConfig(
     @PrimaryKey(autoGenerate = true)
     var id: Int = -1,
     var lastCacheTime: Long)

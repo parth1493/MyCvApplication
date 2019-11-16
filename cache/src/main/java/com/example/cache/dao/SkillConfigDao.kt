@@ -11,7 +11,8 @@ import io.reactivex.Flowable
 
 @Dao
 abstract class SkillConfigDao {
-    @Query(CVConfigConstants.SKILL_CONFIG_TABLE_NAME)
+
+    @Query(CVConfigConstants.SKILL_QUERY_CONFIG)
     abstract fun getConfig(): Flowable<SkillConfig>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

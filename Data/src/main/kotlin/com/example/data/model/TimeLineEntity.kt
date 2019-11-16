@@ -1,6 +1,6 @@
 package com.example.data.model
 
-class TimeLineEntity(
+data class TimeLineEntity(
     var id: Int,
     var name: String,
     var roleName: String,

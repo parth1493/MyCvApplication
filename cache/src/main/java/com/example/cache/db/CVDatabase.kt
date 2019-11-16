@@ -8,8 +8,7 @@ import com.example.cache.dao.*
 import com.example.cache.model.*
 import javax.inject.Inject
 
-@Database(entities = arrayOf(CacheProfile::class,CacheSkill::class,CacheTimeline::class,
-                             ProfileConfig::class,SkillConfig::class,TimelineConfig::class), version = 1)
+@Database(entities = arrayOf(CacheProfile::class,CacheSkill::class,CacheTimeline::class,ProfileConfig::class,SkillConfig::class,TimelineConfig::class), version = 2)
 abstract class CVDatabase @Inject constructor():RoomDatabase() {
 
     abstract fun cachedProfileDao(): CacheProfileDao

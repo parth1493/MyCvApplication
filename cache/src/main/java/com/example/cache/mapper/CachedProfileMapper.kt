@@ -5,6 +5,7 @@ import com.example.data.model.ProfileEntity
 import javax.inject.Inject
 
 class CachedProfileMapper @Inject constructor():CacherMapper<CacheProfile, ProfileEntity> {
+
     override fun mapFromCached(model: CacheProfile): ProfileEntity {
         return ProfileEntity(model.id,model.name,model.role,model.profilepic)
     }

@@ -20,8 +20,7 @@ class CVCachedImpl @Inject constructor(
     private val cvDatabase:CVDatabase,
     private val cachedProfileMapper: CachedProfileMapper,
     private val cachedSkillMapper: CachedSkillMapper,
-    private val cachedTimelineMapper: CachedTimelineMapper
-)
+    private val cachedTimelineMapper: CachedTimelineMapper)
     :CVCache{
     override fun clearProfile(): Completable {
         return Completable.defer {
@@ -62,7 +61,9 @@ class CVCachedImpl @Inject constructor(
     override fun isProfileCachedExpired(): Single<Boolean> {
         val currentTime = System.currentTimeMillis()
         val expirationTime = (60 * 10 * 1000).toLong()
-        return cvDatabase.profileConfigDao().getConfig()
+        return cvDatabase.profileConfigDao()
+            .getConfig()
+            .onErrorReturn {ProfileConfig(lastCacheTime = 0) }
             .single(ProfileConfig(lastCacheTime = 0))
             .map {
                 currentTime - it.lastCacheTime > expirationTime

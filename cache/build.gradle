@@ -7,7 +7,6 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
 
-
     defaultConfig {
         minSdkVersion 26
         targetSdkVersion 29
@@ -28,13 +27,6 @@ android {
 }
 
 dependencies {
-//    implementation fileTree(dir: 'libs', include: ['*.jar'])
-//    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-//    implementation 'androidx.appcompat:appcompat:1.0.2'
-//    implementation 'androidx.core:core-ktx:1.0.2'
-//    testImplementation 'junit:junit:4.12'
-//    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
-//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
     def cacheDependencies = rootProject.ext.cacheDependencies
     def cacheTestDependencies = rootProject.ext.cacheTestDependencies
@@ -48,7 +40,6 @@ dependencies {
     implementation cacheDependencies.rxKotlin
     implementation cacheDependencies.roomRuntime
     implementation cacheDependencies.roomRxJava
-//    annotationProcessor  cacheDependencies.roomCompiler
     kapt cacheDependencies.roomCompiler
 
     testImplementation cacheTestDependencies.junit
@@ -56,7 +47,8 @@ dependencies {
     testImplementation cacheTestDependencies.mockito
     testImplementation cacheTestDependencies.assertj
     testImplementation cacheTestDependencies.robolectric
-//    testImplementation cacheTestDependencies.archTesting
     testImplementation cacheTestDependencies.roomTesting
+    testImplementation cacheTestDependencies.archTesting
     androidTestImplementation cacheTestDependencies.junit
+    androidTestImplementation cacheTestDependencies.junitTest
 }

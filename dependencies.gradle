@@ -15,6 +15,8 @@ ext{
     okHttpVersion = '4.2.2'
     okHttpVersionLogger = '4.2.1'
     retrofitVersion = '2.6.2'
+    roomVersion = '2.2.1'
+    daggerVersion = '2.25.2'
 
     //Testing
     jUnitVersion = '4.12'
@@ -23,8 +25,8 @@ ext{
     robolectricVersion = '4.3.1'
     mokitoInlineVersion = '3.1.0'
     mockitoKotlinVersion = '1.5.0'
-    roomVersion = '2.2.1'
-    daggerVersion = '2.25.2'
+    junitTestVersion = '1.1.0'
+    archTestVersion = '2.1.0'
 
     domainDependencies = [
         javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
@@ -99,5 +101,7 @@ ext{
             assertj: "org.assertj:assertj-core:${assertJVersion}",
             mockito: "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}",
             roomTesting: "androidx.room:room-testing:${roomVersion}",
+            archTesting: "androidx.arch.core:core-testing:${archTestVersion}",
+            junitTest: "androidx.test.ext:junit:${junitTestVersion}"
     ]
 }

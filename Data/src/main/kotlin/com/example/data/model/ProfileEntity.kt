@@ -1,6 +1,6 @@
 package com.example.data.model
 
-class ProfileEntity(
+data class ProfileEntity(
     var id:Int,
     var name:String,
     var role:String,

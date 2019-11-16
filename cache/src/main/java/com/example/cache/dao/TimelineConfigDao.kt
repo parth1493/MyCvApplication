@@ -12,7 +12,8 @@ import io.reactivex.Flowable
 
 @Dao
 abstract class TimelineConfigDao {
-    @Query(CVConfigConstants.TIMELINE_CONFIG_TABLE_NAME)
+
+    @Query(CVConfigConstants.TIMELINE_QUERY_CONFIG)
     abstract fun getConfig(): Flowable<TimelineConfig>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
