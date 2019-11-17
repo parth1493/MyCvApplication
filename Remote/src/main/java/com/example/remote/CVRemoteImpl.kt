@@ -1,8 +1,5 @@
 package com.example.remote
 
-import com.example.data.mapper.ProfileMapper
-import com.example.data.mapper.SkillMapper
-import com.example.data.mapper.TimeLineMapper
 import com.example.data.model.ProfileEntity
 import com.example.data.model.SkillEntity
 import com.example.data.model.TimeLineEntity

@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">UI</string>
+    <string name="app_name">ParthDesaiPortFolio</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="about_paulo">I started as a .net developer in 2012. Then in 2013 I participated in a
+        "Nokia Asha" event in which they asked the participant to create and deploy two android applications.
+        So, I successfully deploy two android application and that how I started my journey as android developer.
+        Then I learned more about android from online courses in Mobile application development. I had an opportunity to join the
+        Surya Infotech mobile team and worked there for almost 2 years as Android developer where I was able to successfully show
+        what I have learned. This great opportunity allows me to increase my vision of the reality of Mobile Development.
+        I am focusing on Android Development. Then in 2017 I joined "FriendNGo" and my first professional Android app was
+        launched on the Play Store in March 2017. My career as Mobile Developer is evolving...."</string>
+    <string name="email">parth1493@gmail.com</string>
+    <string name="linkedIn">https://www.linkedin.com/in/devparth/</string>
+    <string name="github">https://github.com/parth1493</string>
+
 </resources>

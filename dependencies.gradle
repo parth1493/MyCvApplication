@@ -22,6 +22,11 @@ ext{
     timberVersion= '4.7.1'
     glassfishAnnotationVersion = '10.0-b28'
     glideVersion = '4.10.0'
+    recyclerviewVersion = "1.0.0"
+    cardviewVersion = "1.0.0"
+    viewpagerVersion = '1.0.0-rc01'
+    materialVersion = '1.2.0-alpha01'
+    circleImageViewVersion = '3.0.1'
 
     //Testing
     jUnitVersion = '4.12'
@@ -35,6 +40,8 @@ ext{
     archTestVersion = '2.1.0'
     espressoVersion = '3.1.0'
     runnerVersion = '1.1.0'
+
+    rxJavaVersion = '2.0.2'
 
     domainDependencies = [
         javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
@@ -117,7 +124,7 @@ ext{
             daggerCompiler: "com.google.dagger:dagger-compiler:${daggerVersion}",
             dagger: "com.google.dagger:dagger:${daggerVersion}",
             rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
-            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}",
             rxAndroid: "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
             javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}",
@@ -142,8 +149,7 @@ ext{
             dagger: "com.google.dagger:dagger:${daggerVersion}",
             rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
             rxAndroid: "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
-            glide: "com.github.bumptech.glide:glide:${glideVersion}",
-            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}",
             javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject: "javax.inject:javax.inject:${javaxInjectVersion}",
             timber: "com.jakewharton.timber:timber:${timberVersion}",
@@ -156,7 +162,15 @@ ext{
             lifecycleRuntime: "androidx.lifecycle:lifecycle-runtime:${lifecycleVersion}",
             lifecycleExtensions: "androidx.lifecycle:lifecycle-extensions:${lifecycleVersion}",
             roomRxJava: "androidx.room:room-rxjava2:${roomVersion}",
-            lifecycleCompiler: "androidx.lifecycle:lifecycle-compiler:${lifecycleVersion}"
+            lifecycleCompiler: "androidx.lifecycle:lifecycle-compiler:${lifecycleVersion}",
+            glide: "com.github.bumptech.glide:glide:${glideVersion}",
+            glideCompiler: "com.github.bumptech.glide:compiler:${glideVersion}",
+            circleImageView: "de.hdodenhof:circleimageview:${circleImageViewVersion}",
+            recyclerview: "androidx.recyclerview:recyclerview:${recyclerviewVersion}",
+            recyclerviewSelection: "androidx.recyclerview:recyclerview-selection:${recyclerviewVersion}",
+            cardview: "androidx.cardview:cardview:${cardviewVersion}",
+            viewpager: "androidx.viewpager2:viewpager2:${viewpagerVersion}",
+            material: "com.google.android.material:material:${materialVersion}"
     ]
 
     mobileUiTestDependencies = [
@@ -171,4 +185,8 @@ ext{
             androidRunner: "androidx.test:runner:${runnerVersion}",
             androidRules: "androidx.test:rules:${runnerVersion}"
     ]
+
+//    implementation 'com.squareup.picasso:picasso:2.71828'
+
+
 }

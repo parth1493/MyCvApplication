@@ -1,4 +1,4 @@
-apply plugin: 'com.android.library'
+apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -28,19 +28,18 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
+    kapt {
+        correctErrorTypes true
+    }
 }
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     implementation project(':presentation')
     implementation project(':Data')
     implementation project(':Remote')
     implementation project(':cache')
+    implementation project(':Domain')
 
     def mobileUiDependencies = rootProject.ext.mobileUiDependencies
     def mobileUiTestDependencies = rootProject.ext.mobileUiTestDependencies
@@ -58,9 +57,14 @@ dependencies {
     implementation mobileUiDependencies.lifecycleRuntime
     implementation mobileUiDependencies.lifecycleExtensions
     implementation mobileUiDependencies.roomRxJava
+    implementation mobileUiDependencies.circleImageView
+    implementation mobileUiDependencies.recyclerview
+    implementation mobileUiDependencies.recyclerviewSelection
+    implementation mobileUiDependencies.cardview
+    implementation mobileUiDependencies.viewpager
+    implementation mobileUiDependencies.material
 
-    kaptTest mobileUiDependencies.daggerCompiler
-    kaptAndroidTest mobileUiDependencies.daggerCompiler
+    kapt mobileUiDependencies.glideCompiler
     kapt mobileUiDependencies.lifecycleCompiler
     kapt mobileUiDependencies.daggerCompiler
     kapt mobileUiDependencies.daggerProcessor
@@ -74,4 +78,20 @@ dependencies {
     androidTestImplementation mobileUiTestDependencies.androidRunner
     androidTestImplementation mobileUiTestDependencies.androidRules
     androidTestImplementation mobileUiTestDependencies.espressoIntents
+    //ui
+    //glide
+//    kapt 'com.github.bumptech.glide:compiler:4.9.0'
+//    implementation 'de.hdodenhof:circleimageview:3.0.1'
+//    implementation 'com.squareup.picasso:picasso:2.71828'
+//    //recycle
+//    def recyclerview_version = "1.0.0"
+//    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+//    // For control over item selection of both touch and mouse driven selection
+//    implementation "androidx.recyclerview:recyclerview-selection:$recyclerview_version"
+//    def cardview_version = "1.0.0"
+//    implementation "androidx.cardview:cardview:$cardview_version"
+//    implementation "androidx.viewpager2:viewpager2:1.0.0-rc01"
+//    implementation 'com.google.android.material:material:1.2.0-alpha01'
+
+        implementation 'com.squareup.picasso:picasso:2.71828'
 }

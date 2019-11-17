@@ -44,7 +44,7 @@ class CVRemoteImplTest {
         stubProjectsResponseModelMapperMapFromModel(any(),
             CVDataFactory.makeProfileEntity())
 
-        remote.getProfile().test()
+        remote.getProfile()
         verify(service).getProfile()
     }
 

@@ -1,2 +1,2 @@
 include ':Domain', ':Data', ':Remote', ':cache', ':presentation', ':UI'
-rootProject.name='MyCvApplication'
+

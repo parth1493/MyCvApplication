@@ -1,17 +1,17 @@
 apply plugin: 'kotlin'
 
 dependencies {
-    def domainDependecnies = rootProject.ext.domainDependencies
-    def domainTestDependecnies = rootProject.ext.domainTestDependencies
+    def domainDependencies = rootProject.ext.domainDependencies
+    def domainTestDependencies = rootProject.ext.domainTestDependencies
 
-    implementation domainDependecnies.rxKotlin
+    implementation domainDependencies.rxKotlin
     implementation domainDependencies.javaxInject
     implementation domainDependencies.javaxAnnotation
     implementation domainDependencies.kotlin
 
-    testImplementation domainTestDependecnies.jUnit
-    testImplementation domainTestDependecnies.mockito
-    testImplementation domainTestDependecnies.assertj
+    testImplementation domainTestDependencies.jUnit
+    testImplementation domainTestDependencies.mockito
+    testImplementation domainTestDependencies.assertj
 
 }
 

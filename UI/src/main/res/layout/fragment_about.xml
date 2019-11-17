@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.AboutFragment">
+
+    <androidx.cardview.widget.CardView
+        android:layout_centerHorizontal="true"
+        app:cardElevation="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bree_serif"
+            android:padding="10dp"
+            android:text="@string/about_paulo"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="14sp" />
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
