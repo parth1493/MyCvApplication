@@ -1,2 +1,2 @@
-include ':Domain', ':Data', ':Remote', ':cache'
+include ':Domain', ':Data', ':Remote', ':cache', ':presentation'
 rootProject.name='MyCvApplication'

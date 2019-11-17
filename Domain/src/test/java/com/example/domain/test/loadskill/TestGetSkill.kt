@@ -21,7 +21,8 @@ class TestGetSkill {
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
-        getSkill = GetSkill(cvRepository, postExecutionThread)
+        getSkill =
+            GetSkill(cvRepository, postExecutionThread)
     }
 
     @Test

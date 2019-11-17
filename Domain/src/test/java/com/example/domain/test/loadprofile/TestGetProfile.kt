@@ -20,7 +20,8 @@ class TestGetProfile {
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
-        getProfile = GetProfile(cvRepository, postExecutionThread)
+        getProfile =
+            GetProfile(cvRepository, postExecutionThread)
     }
 
     @Test

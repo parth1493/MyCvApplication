@@ -7,7 +7,8 @@ import com.example.domain.respository.CVRepository
 import io.reactivex.Observable
 import javax.inject.Inject
 
-class GetSkill @Inject constructor(
+open class GetSkill @Inject constructor(
+
     private val cvRepository: CVRepository,
     postExecutionThread: PostExecutionThread):
     ObservableUseCase<List<Skill>, Nothing?>(postExecutionThread){

@@ -7,11 +7,13 @@ import com.example.domain.respository.CVRepository
 import io.reactivex.Observable
 import javax.inject.Inject
 
-class GetProfile @Inject constructor(
+open class GetProfile @Inject constructor(
+
     private val cvRepository: CVRepository,
+
     postExecutionThread: PostExecutionThread):
     ObservableUseCase<List<Profile>, Nothing?>(postExecutionThread){
-   public override fun buildUseCaseObservable(param: Nothing?): Observable<List<Profile>> {
+    public override fun buildUseCaseObservable(param: Nothing?): Observable<List<Profile>> {
         return  cvRepository.getProfile()
     }
 }

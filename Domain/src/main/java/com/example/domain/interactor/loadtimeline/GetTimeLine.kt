@@ -7,7 +7,7 @@ import com.example.domain.respository.CVRepository
 import io.reactivex.Observable
 import javax.inject.Inject
 
-class GetTimeLine @Inject constructor(
+open class GetTimeLine @Inject constructor(
     private val cvRepository: CVRepository,
     postExecutionThread: PostExecutionThread):
     ObservableUseCase<List<TimeLine>, Nothing?>(postExecutionThread){

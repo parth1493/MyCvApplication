@@ -21,7 +21,10 @@ class TestGetTimeLine {
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
-        getTimeline = GetTimeLine(cvRepository, postExecutionThread)
+        getTimeline = GetTimeLine(
+            cvRepository,
+            postExecutionThread
+        )
     }
 
     @Test
