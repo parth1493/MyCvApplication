@@ -18,10 +18,6 @@ open class TimelineViewModel @Inject constructor(
     : ViewModel(){
     private val liveData: MutableLiveData<Resource<List<TimelineView>>> = MutableLiveData()
 
-//    init {
-//        fetchSkill()
-//    }
-
     override fun onCleared() {
         getTimeline?.dispose()
         super.onCleared()

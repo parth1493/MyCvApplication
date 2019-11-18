@@ -15,6 +15,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+       // testInstrumentationRunner "com.example.ui.tes.TestRunner"
+
         consumerProguardFiles 'consumer-rules.pro'
     }
 
@@ -31,6 +33,12 @@ android {
     kapt {
         correctErrorTypes true
     }
+    testOptions {
+        unitTests.all {
+            jvmArgs '-noverify'
+        }
+    }
+
 }
 
 dependencies {
@@ -70,28 +78,17 @@ dependencies {
     kapt mobileUiDependencies.daggerProcessor
     compileOnly mobileUiDependencies.glassfishAnnotation
 
-    testImplementation mobileUiTestDependencies.kotlinJUnit
-    androidTestImplementation mobileUiTestDependencies.junit
-    androidTestImplementation mobileUiTestDependencies.mockito
-    androidTestImplementation mobileUiTestDependencies.mockitoAndroid
-    androidTestImplementation mobileUiTestDependencies.espressoCore
-    androidTestImplementation mobileUiTestDependencies.androidRunner
-    androidTestImplementation mobileUiTestDependencies.androidRules
-    androidTestImplementation mobileUiTestDependencies.espressoIntents
-    //ui
-    //glide
-//    kapt 'com.github.bumptech.glide:compiler:4.9.0'
-//    implementation 'de.hdodenhof:circleimageview:3.0.1'
-//    implementation 'com.squareup.picasso:picasso:2.71828'
-//    //recycle
-//    def recyclerview_version = "1.0.0"
-//    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
-//    // For control over item selection of both touch and mouse driven selection
-//    implementation "androidx.recyclerview:recyclerview-selection:$recyclerview_version"
-//    def cardview_version = "1.0.0"
-//    implementation "androidx.cardview:cardview:$cardview_version"
-//    implementation "androidx.viewpager2:viewpager2:1.0.0-rc01"
-//    implementation 'com.google.android.material:material:1.2.0-alpha01'
-
-        implementation 'com.squareup.picasso:picasso:2.71828'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+        testImplementation 'junit:junit:4.12'
+    implementation mobileUiTestDependencies.kotlinJUnit
+    androidTestImplementation mobileUiTestDependencies.assertj
+    androidTestImplementation 'org.assertj:assertj-core:3.8.0'
+    androidTestImplementation 'com.nhaarman:mockito-kotlin:1.5.0'
+    androidTestImplementation 'org.mockito:mockito-android:2.8.9'
+//    androidTestImplementation mobileUiTestDependencies.espressoCore
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test:rules:1.1.0'
+//    androidTestImplementation mobileUiTestDependencies.espressoIntents
+    kaptTest mobileUiDependencies.daggerCompiler
+    kaptAndroidTest mobileUiDependencies.daggerCompiler
 }

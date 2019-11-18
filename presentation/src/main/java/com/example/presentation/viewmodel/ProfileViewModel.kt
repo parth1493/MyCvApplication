@@ -19,10 +19,6 @@ open class ProfileViewModel @Inject constructor(
 
     private val liveData: MutableLiveData<Resource<List<ProfileView>>> = MutableLiveData()
 
-//    init {
-//        fetchProfile()
-//    }
-
     override fun onCleared() {
         getProfile?.dispose()
         super.onCleared()

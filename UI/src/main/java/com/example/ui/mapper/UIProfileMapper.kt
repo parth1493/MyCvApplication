@@ -1,6 +1,5 @@
 package com.example.ui.mapper
 
-import com.example.domain.model.Profile
 import com.example.presentation.model.ProfileView
 import com.example.ui.model.UIProfile
 import javax.inject.Inject

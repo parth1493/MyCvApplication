@@ -19,10 +19,6 @@ open class SkillViewModel @Inject constructor(
 
     private val liveData: MutableLiveData<Resource<List<SkillView>>> = MutableLiveData()
 
-//        init {
-//            fetchSkill()
-//        }
-
     override fun onCleared() {
         getSkill?.dispose()
         super.onCleared()

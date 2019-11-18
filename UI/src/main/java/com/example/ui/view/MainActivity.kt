@@ -4,8 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -20,7 +18,6 @@ import com.example.ui.injection.ViewModelFactory
 import com.example.ui.mapper.UIProfileMapper
 import com.example.ui.model.UIProfile
 import com.google.android.material.tabs.TabLayoutMediator
-import com.squareup.picasso.Picasso
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_main.*
 import timber.log.Timber
