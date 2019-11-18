@@ -32,7 +32,7 @@ Based on mvvm architecture and repository pattern.
 
 #### App Specs
 * Minimum SDK 16
-* [Java8](https://java.com/en/download/faq/java8.xml) (in [master](https://github.com/parth1493/MyCvApplication) (in [kotlin_support](https://github.com/anitaa1990/Github-Trending-Repos/tree/kotlin_support) branch)
+* [Java8](https://java.com/en/download/faq/java8.xml) (in [master](https://github.com/parth1493/MyCvApplication)
 * MVVM Architecture
 * Android Architecture Components (LiveData, Lifecycle, ViewModel, Room Persistence Library, Recycleview, Cardview)
 * [RxJava2](https://github.com/ReactiveX/RxJava) for implementing Observable pattern.
