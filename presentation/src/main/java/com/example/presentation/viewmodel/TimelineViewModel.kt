@@ -31,7 +31,7 @@ open class TimelineViewModel @Inject constructor(
         return liveData
     }
 
-    fun fetchSkill() {
+    fun fetchTimeline() {
         liveData.postValue(Resource(ResourceState.LOADING, null, null))
         getTimeline?.execute(TimelineSubscriber())
     }

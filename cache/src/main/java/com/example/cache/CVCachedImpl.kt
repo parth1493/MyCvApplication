@@ -64,7 +64,7 @@ class CVCachedImpl @Inject constructor(
         return cvDatabase.profileConfigDao()
             .getConfig()
             .onErrorReturn {ProfileConfig(lastCacheTime = 0) }
-            .single(ProfileConfig(lastCacheTime = 0))
+            .toSingle(ProfileConfig(lastCacheTime = 0L))
             .map {
                 currentTime - it.lastCacheTime > expirationTime
         }
@@ -110,7 +110,8 @@ class CVCachedImpl @Inject constructor(
         val currentTime = System.currentTimeMillis()
         val expirationTime = (60 * 10 * 1000).toLong()
         return cvDatabase.skillConfigDao().getConfig()
-            .single(SkillConfig(lastCacheTime = 0))
+            .onErrorReturn { SkillConfig(lastCacheTime = 0) }
+            .toSingle(SkillConfig(lastCacheTime = 0L))
             .map {
                 currentTime - it.lastCacheTime > expirationTime
         }
@@ -156,7 +157,8 @@ class CVCachedImpl @Inject constructor(
         val currentTime = System.currentTimeMillis()
         val expirationTime = (60 * 10 * 1000).toLong()
         return cvDatabase.timelineConfigDao().getConfig()
-            .single(TimelineConfig(lastCacheTime = 0))
+            .onErrorReturn { TimelineConfig(lastCacheTime = 0) }
+            .toSingle(TimelineConfig(lastCacheTime = 0L))
             .map {
                 currentTime - it.lastCacheTime > expirationTime
         }

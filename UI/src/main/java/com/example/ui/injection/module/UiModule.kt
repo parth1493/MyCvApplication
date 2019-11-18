@@ -3,6 +3,8 @@ package com.example.ui.injection.module
 import com.example.domain.executor.PostExecutionThread
 import com.example.ui.UiThread
 import com.example.ui.view.MainActivity
+import com.example.ui.view.SkillFragment
+import com.example.ui.view.WorkFragment
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -15,10 +17,9 @@ abstract class UiModule {
     @ContributesAndroidInjector
     abstract fun contributesProfile(): MainActivity
 
-//    @ContributesAndroidInjector
-//    abstract fun contributesSkill(): SkillFragment
-//
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributesTimeline(): WorkFragment
+    @ContributesAndroidInjector
+    abstract fun contributesSkill(): SkillFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributesTimeline(): WorkFragment
 }

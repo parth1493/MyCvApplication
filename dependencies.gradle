@@ -27,6 +27,7 @@ ext{
     viewpagerVersion = '1.0.0-rc01'
     materialVersion = '1.2.0-alpha01'
     circleImageViewVersion = '3.0.1'
+    gsonVersion = '2.8.6'
 
     //Testing
     jUnitVersion = '4.12'
@@ -84,7 +85,8 @@ ext{
             okHttpLogger: "com.squareup.okhttp3:logging-interceptor:${okHttpVersionLogger}",
             retrofit: "com.squareup.retrofit2:retrofit:${retrofitVersion}",
             retrofitConverter: "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
-            retrofitAdapter: "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
+            retrofitAdapter: "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
+            gson: "com.google.code.gson:gson:${gsonVersion}"
     ]
 
     remoteTestDependencies = [
@@ -185,8 +187,4 @@ ext{
             androidRunner: "androidx.test:runner:${runnerVersion}",
             androidRules: "androidx.test:rules:${runnerVersion}"
     ]
-
-//    implementation 'com.squareup.picasso:picasso:2.71828'
-
-
 }

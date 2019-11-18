@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 class MultipleTypeAdapter @Inject constructor() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-     var timelineList : List<UITimeline> = arrayListOf()
+    var timelineList : List<UITimeline> = arrayListOf()
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view: View
@@ -68,9 +68,9 @@ class MultipleTypeAdapter @Inject constructor() : RecyclerView.Adapter<RecyclerV
             txtRole.text = timeline.roleName
             txtDate.text = timeline.dateToFrom
             txtResponsibilities.text = timeline.responsibilities
-//            Glide.with(itemView.context)
-//                .load(Uri.parse(timeline.image))
-//                .into(imageView)
+            Glide.with(itemView.context)
+                .load(Uri.parse(timeline.image))
+                .into(imageView)
         }
     }
 

@@ -1,11 +1,32 @@
 package com.example.ui.view
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.data.mapper.TimeLineMapper
+import com.example.presentation.model.SkillView
+import com.example.presentation.model.TimelineView
+import com.example.presentation.state.Resource
+import com.example.presentation.state.ResourceState
+import com.example.presentation.viewmodel.SkillViewModel
+import com.example.presentation.viewmodel.TimelineViewModel
+import com.example.ui.CVApplication
 import com.example.ui.R
+import com.example.ui.mapper.UITimelineMapper
+import com.example.ui.model.UISkill
+import com.example.ui.model.UITimeline
+import com.example.ui.view.adapter.MultipleTypeAdapter
+import dagger.android.AndroidInjection
+import kotlinx.android.synthetic.main.fragment_skill.*
+import timber.log.Timber
+import javax.inject.Inject
 
 
 /**
@@ -18,10 +39,17 @@ import com.example.ui.R
  */
 class WorkFragment : Fragment() {
 
-   // private lateinit var timeLineViewModel : TimelineViewModel
-
+    @Inject lateinit var timelineAdapter: MultipleTypeAdapter
+    @Inject lateinit var mapper: UITimelineMapper
+    @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
+    private lateinit var timelineViewModel: TimelineViewModel
     companion object {
         fun newInstance() = WorkFragment()
+    }
+
+    override fun onAttach(context: Context) {
+        (activity?.application as CVApplication).androidInjector().inject(this)
+        super.onAttach(context)
     }
 
     override fun onCreateView(
@@ -36,24 +64,56 @@ class WorkFragment : Fragment() {
 
     // populate the views now that the layout has been inflated
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        // RecyclerView node initialized here
-     //   timeLineViewModel = ViewModelProviders.of(this).get(TimelineViewModel::class.java)
-       // getTimeLineData(timeLineViewModel)
-        //observeMyTimeLine(timeLineViewModel)
+    }
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        timelineViewModel = ViewModelProviders.of(activity!!, viewModelFactory)
+            .get(TimelineViewModel::class.java)
+        setupSkillsRecycler()
     }
 
-//    private fun getTimeLineData(viewModel: TimelineViewModel) {
-//        viewModel.getTimeLineData()
-//    }
+    override fun onDestroy() {
+        super.onDestroy()
+        (activity?.application as CVApplication).androidInjector()
+    }
 
-//    fun observeMyTimeLine(viewModel: TimelineViewModel){
-//        viewModel.getLiveData().observe(this, Observer {
-//                timeLine ->
-//            recyclerView.apply {
-//                layoutManager = LinearLayoutManager(activity)
-//                adapter = MultipleTypeAdapter(timeLine)
-//            }
-//        })
-//    }
+    private fun setupSkillsRecycler() {
+        recyclerView.layoutManager = LinearLayoutManager(activity)
+        recyclerView.adapter = timelineAdapter
+    }
+    override fun onStart() {
+        super.onStart()
+        timelineViewModel.getTimeline().observe(this,
+            Observer<Resource<List<TimelineView>>> {
+                it?.let {
+                    handleDataState(it)
+                }
+            })
+        timelineViewModel.fetchTimeline()
+    }
+    private fun handleDataState(resource: Resource<List<TimelineView>>) {
+        when (resource.status) {
+            ResourceState.SUCCESS -> {
+                setupScreenForSuccess(resource.data?.map {
+                    Timber.e(resource.message)
+                    mapper.mapToView(it)
+                })
+            } ResourceState.LOADING -> {
+            Timber.e(resource.message)
+        }
+            ResourceState.ERROR -> {
+                Timber.e(resource.message)
+            }
+        }
+    }
+
+    private fun setupScreenForSuccess(skill: List<UITimeline>?) {
+        skill?.let {
+            timelineAdapter.timelineList = it
+            timelineAdapter.notifyDataSetChanged()
+        } ?: run {
+        }
+    }
+
 }

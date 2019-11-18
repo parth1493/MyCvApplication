@@ -3,6 +3,7 @@ package com.example.data
 import com.example.data.mapper.ProfileMapper
 import com.example.data.mapper.SkillMapper
 import com.example.data.mapper.TimeLineMapper
+import com.example.data.model.TimeLineEntity
 import com.example.data.repository.CVCache
 import com.example.data.store.CVDataStoreFactory
 import com.example.domain.model.Profile
@@ -34,8 +35,8 @@ class CVDataRepository @Inject constructor(
                 .saveTimeLine(skill)
                 .andThen(Observable.just(skill))
             }
-            .map {
-                it.map {
+            .map {timeLineEntity->
+                timeLineEntity.map {
                     mapperTimeLine.mapFromEntity(it)
             }
         }
@@ -56,8 +57,8 @@ class CVDataRepository @Inject constructor(
                 .saveSkill(skill)
                 .andThen(Observable.just(skill))
             }
-            .map {
-                it.map {
+            .map {skillEntity->
+                skillEntity.map {
                     mapperSkill.mapFromEntity(it)
             }
         }
@@ -77,8 +78,8 @@ class CVDataRepository @Inject constructor(
                 .saveProfile(profile)
                 .andThen(Observable.just(profile))
             }
-            .map {
-                it.map {
+            .map {profileEntity->
+                profileEntity.map {
                     mapperProfile.mapFromEntity(it)
             }
         }

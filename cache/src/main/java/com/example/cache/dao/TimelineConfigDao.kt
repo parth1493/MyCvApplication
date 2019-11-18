@@ -9,12 +9,13 @@ import com.example.cache.model.ProfileConfig
 import com.example.cache.model.SkillConfig
 import com.example.cache.model.TimelineConfig
 import io.reactivex.Flowable
+import io.reactivex.Maybe
 
 @Dao
 abstract class TimelineConfigDao {
 
     @Query(CVConfigConstants.TIMELINE_QUERY_CONFIG)
-    abstract fun getConfig(): Flowable<TimelineConfig>
+    abstract fun getConfig(): Maybe<TimelineConfig>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insertConfig(config: TimelineConfig)

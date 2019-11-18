@@ -32,9 +32,7 @@ class SkillAdapter @Inject constructor() : RecyclerView.Adapter<SkillAdapter.Ski
         holder.ratingBar.rating = skillList[position].skillValue
     }
 
-
-
-     class SkillRecycleView(view: View) : RecyclerView.ViewHolder(view) {
+    inner class SkillRecycleView(view: View) : RecyclerView.ViewHolder(view) {
             val txtSkillName = view.txtSkillName
             val ratingBar = view.myRating
     }
